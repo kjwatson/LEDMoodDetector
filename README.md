@@ -5,7 +5,7 @@ This is an advanced IoT application which allows for music to be streamed to an 
 1. Get the git command line client (Windows users should use Gitbash).
 2. In some directory, use the following command to pull the project to your computer:
 
-   <code>git clone https://github.com/nshkurkin/memSim</code>
+   <code>git clone https://github.com/kjwatson/SmartLEDSpeaker.git</code>
 
 3. When working on a project, make sure you have the most recent version:
 
