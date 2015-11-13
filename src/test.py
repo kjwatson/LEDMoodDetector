@@ -1,4 +1,6 @@
-from twython import Twython
+# try following the directions at the Twython github account
+
+from twython import Twython, TwythonError
 
 CONSUMER_KEY = 'yoYIs8DGdAg1MiPTxI7qsiKSo'
 CONSUMER_SECRET = 'L2tx4Iv8FnKazyie9hbmnTRmDe4vgpUJIdjB2jghGmqeLjOABV'
@@ -12,13 +14,12 @@ token = twitter.obtain_access_token()
 twitter = Twython(CONSUMER_KEY, access_token = token)
 
 try:
-    results = twitter.search(q='news', count = 100)
+    results = twitter.search(q='news', count = 1)
 
     for tweet in results:
         print(tweet)
-
-except:
-    print "error happened"
+except TwythonError as e:
+    print (e)
 
 
 
