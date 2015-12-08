@@ -4,20 +4,20 @@ from twython import Twython, TwythonError
 
 CONSUMER_KEY = 'yoYIs8DGdAg1MiPTxI7qsiKSo'
 CONSUMER_SECRET = 'L2tx4Iv8FnKazyie9hbmnTRmDe4vgpUJIdjB2jghGmqeLjOABV'
-ACCESS_KEY = 'FeGf2BLA3UasN6B11AtC33VPnkl7tTcdSzK9Bvs'
-ACCESS_SECRET = 'Q1Es7LVnZzcuNm6IxgNAiRHw1VLIESipHnRi3ZZWCHv1X'
+OAUTH_KEY = 'FeGf2BLA3UasN6B11AtC33VPnkl7tTcdSzK9Bvs'
+OAUTH_SECRET = 'Q1Es7LVnZzcuNm6IxgNAiRHw1VLIESipHnRi3ZZWCHv1X'
 
-twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET, oauth_version=2)
+#twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_KEY, OAUTH_SECRET)
 
-token = twitter.obtain_access_token()
-
-twitter = Twython(CONSUMER_KEY, access_token = token)
+twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET)
+# auth = twitter.get_authentication_tokens()
 
 try:
-    results = twitter.search(q='news', count = 1)
+    search_results = twitter.search(q='news', count = 50)
 
-    for tweet in results:
-        print(tweet)
+    for tweet in search_results['statuses']:
+        print(tweet['text'].encode('utf-8'), '\n')
+
 except TwythonError as e:
     print (e)
 
